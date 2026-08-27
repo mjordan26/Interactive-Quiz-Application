@@ -1,0 +1,259 @@
+CAR BRANDS & MODELS
+
+1. Which company produces the Mustang?
+
+A. BMW
+B. Ford
+C. Audi
+D. Toyota
+
+Answer: B
+Difficulty: Easy
+
+2. Which car manufacturer is known for the 3 Series?
+
+A. Mercedes-Benz
+B. Audi
+C. Lexus
+D. BMW
+
+Answer: D
+Difficulty: Easy
+
+3. Which company makes the Corolla?
+
+A. Honda
+B. Ford
+C. Toyota
+D. Nissan
+
+Answer: C
+Difficulty: Easy
+
+4. Which car manufacturer produces the Civic?
+
+A. Mazda
+B. Volkswagen
+C. Hyundai
+D. Honda
+
+Answer: D
+Difficulty: Easy
+
+5. Which manufacturer produces the Golf?
+
+A. Ford
+B. Toyota
+C. Volkswagen
+D. BMW
+
+Answer: A
+Difficulty: Easy
+
+ENGINES & MECHANICS
+
+1. What is the main purpose of a turbocharger?
+
+A. To make the Vehicle lighter
+B. To reduce the size of the fuel tank
+C. To cool the engine oil
+D. To increase engine power by forcing more air into the engine
+
+Answer: D
+Difficulty: Medium
+
+2. What does ABS help prevent during hard braking?
+
+A. Engine overheating
+B. Wheels locking up
+C. Battery failure
+D. Fuel consumption
+
+Answer: B
+Difficulty: Medium
+
+3. What does engine displacement refer to?
+
+A. The maximum speed of the engine
+B. The total volume swept by the engine's pistons
+C. The amount of fuel in the tank
+D. The weight of the engine
+
+Answer: B
+Difficulty: Medium
+
+4. What is the main function of engine oil?
+
+A. To increase the fuel tank capacity
+B. To increase the tyre pressure
+C. To lubricate and protect engine components
+D. To cool the vehicle's brakes
+
+Answer: C
+Difficulty: Medium
+
+5. What is the purpose of a car's radiator?
+
+A. To cool the engine coolant
+B. To increase engine power
+C. To control the tyre pressure
+D. To store engine oil
+
+Answer: A
+Difficulty: Medium
+
+PERFORMANCE
+
+1. Which measurement is commonly used to describe an engine's power output?
+
+A.Kilometres per hour
+B. Litres
+C. Horsepower
+D. Kilometres
+
+Answer: C
+Difficulty: Medium
+
+2. What does 0–100 km/h acceleration measure?
+
+A. How far a car can travel on one tank
+B. How quickly a car can stop from 100 km/h
+C. How much fuel a car uses at 100 km/h
+D. How quickly a car reaches 100 km/h from a standstill
+
+Answer: D
+Difficulty: Medium
+
+3. What does torque measure in an engine?
+
+A. Vehicle weight
+B. Rotational force
+C. Fuel capacity
+D. Maximum speed
+
+Answer: B
+Difficulty: Medium
+
+4. Which factor can improve a car's acceleration?
+
+A. A heavier body
+B. Lower engine output
+C. A higher power-to-weight ratio
+D. Smaller fuel capacity
+
+Answer: C
+Difficulty: Medium
+
+5. What is the main advantage of a lighter vehicle when other factors are equal?
+
+A. It always has a larger engine
+B. It always uses more fuel
+C. It produces more engine noise
+D. It can accelerate more easily
+
+Answer: D
+Difficulty: Medium
+
+MOTORSPORT
+
+1. In Formula 1, why can a driver lose lap time when following another car closely through a corner?
+
+A. The following car automatically loses engine power
+B. The tyres of the following car become smaller
+C. The steering wheel becomes less responsive because of the engine temperature
+D. Turbulent air from the car ahead can reduce the following car's aerodynamic performance
+
+Answer: D
+Difficulty: Hard
+
+2. Why do Formula 1 cars use aerodynamic downforce?
+
+A. To reduce the engine's fuel consumption
+B. To increase the car's top speed on every part of the track
+C. To increase grip and allow the car to corner at higher speeds
+D. To prevent the tyres from making contact with the track
+
+Answer: C
+Difficulty: Hard
+
+3. What is the main effect of increasing aerodynamic downforce on a race car?
+
+A. It increases the force pressing the car towards the track
+B. It reduces the car's overall weight
+C. It makes the engine produce more horsepower
+D. It increases the amount of fuel the car can carry
+
+Answer: A
+Difficulty: Hard
+
+4. During a dry Formula 1 race, why might a team deliberately choose a tyre strategy that requires an additional pit stop?
+
+A. To make the car heavier during cornering
+B. To avoid using the steering wheel on slower corners
+C. To gain performance from fresher tyres and compensate for the time lost in the extra stop
+D. To prevent the engine from producing maximum power
+
+Answer: C
+Difficulty: Hard
+
+5. Why can braking while turning sharply increase the risk of a race car losing control?
+
+A. It causes the engine to stop producing torque
+B. It automatically increases tyre pressure
+C. It makes the steering wheel disconnect from the front wheels
+D. Braking and cornering both demand tyre grip, leaving less grip available for each task
+
+Answer: D
+Difficulty: Hard
+
+DRIVING & ROAD SAFETY
+
+1. During hard braking, a car's weight shifts toward the front wheels. What is the main consequence of this weight transfer?
+
+A. Weight transfer causes the engine to produce less torque
+B. Both front and rear tyres lose exactly the same amount of available grip
+C. The rear tyres generally gain available grip while the front tyres lose some
+D. The front tyres generally gain available grip while the rear tyres lose some
+
+Answer: D
+Difficulty: Hard
+
+2. Why does a vehicle generally have less available traction when braking and turning at the same time?
+
+A. The engine produces less power while turning
+B. The tyres must use their available grip for both braking and cornering
+C. The vehicle becomes lighter during braking
+D. The steering system reduces the tyre pressure
+
+Answer: B
+Difficulty: Hard
+
+3. Why can a vehicle with worn tyres be more difficult to control in heavy rain?
+
+A. Worn tyres increase the vehicle's engine power
+B. Worn tyres make the vehicle heavier
+C. Reduced tread depth can decrease the tyres' ability to channel water away from the road surface
+D. Reduced tread depth increases the vehicle's fuel tank capacity
+
+Answer: C
+Difficulty: Hard
+
+4. Why can carrying a heavy load at the rear of a vehicle affect its handling?
+
+A. It can change the vehicle's weight distribution and reduce stability
+B. It automatically increases the engine's horsepower
+C. It makes the steering system use less mechanical force
+D. It increases the tyre tread depth
+
+Answer: A
+Difficulty: Hard
+
+5. Why is maintaining a safe following distance especially important at higher speeds?
+
+A. It reduces the amount of fuel the engine can use
+B. It prevents the tyres from wearing completely
+C. It increases the vehicle's maximum speed
+D. It gives the driver more time and distance to react and stop if necessary
+
+Answer: D
+Difficulty: Hard
