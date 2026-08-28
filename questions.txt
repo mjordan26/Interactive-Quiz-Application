@@ -47,7 +47,7 @@ B. Toyota
 C. Volkswagen
 D. BMW
 
-Answer: A
+Answer: C
 Difficulty: Easy
 
 ENGINES & MECHANICS
@@ -94,7 +94,7 @@ Difficulty: Medium
 
 5. What is the purpose of a car's radiator?
 
-A. To cool the engine coolant
+A. To remove heat from the engine coolant
 B. To increase engine power
 C. To control the tyre pressure
 D. To store engine oil
@@ -106,7 +106,7 @@ PERFORMANCE
 
 1. Which measurement is commonly used to describe an engine's power output?
 
-A.Kilometres per hour
+A. Kilometres per hour
 B. Litres
 C. Horsepower
 D. Kilometres
@@ -149,7 +149,7 @@ Difficulty: Medium
 A. It always has a larger engine
 B. It always uses more fuel
 C. It produces more engine noise
-D. It can accelerate more easily
+D. It can accelerate faster
 
 Answer: D
 Difficulty: Medium
@@ -176,12 +176,12 @@ D. To prevent the tyres from making contact with the track
 Answer: C
 Difficulty: Hard
 
-3. What is the main effect of increasing aerodynamic downforce on a race car?
+3. A Formula 1 team increases rear-wing downforce for a circuit with many high-speed corners. What is the most likely trade-off?
 
-A. It increases the force pressing the car towards the track
-B. It reduces the car's overall weight
-C. It makes the engine produce more horsepower
-D. It increases the amount of fuel the car can carry
+A. More cornering stability but greater aerodynamic drag
+B. Less cornering stability and greater aerodynamic drag
+C. More cornering stability and less aerodynamic drag
+D. Less cornering stability and less aerodynamic drag
 
 Answer: A
 Difficulty: Hard
@@ -253,7 +253,7 @@ Difficulty: Hard
 A. It reduces the amount of fuel the engine can use
 B. It prevents the tyres from wearing completely
 C. It increases the vehicle's maximum speed
-D. It gives the driver more time and distance to react and stop if necessary
+D. It gives the driver more distance to react and stop if necessary
 
 Answer: D
 Difficulty: Hard
