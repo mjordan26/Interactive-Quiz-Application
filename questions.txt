@@ -50,6 +50,58 @@ D. BMW
 Answer: C
 Difficulty: Easy
 
+CAR PARTS & FEATURES
+
+1. Which part of a car is used to steer the vehicle?
+
+A. Brake pedal
+B. Steering wheel
+C. Gear lever
+D. Accelerator pedal
+
+Answer: B
+Difficulty: Easy
+
+2. Which part of a car provides light for the road ahead at night?
+
+A. Headlights
+B. Side mirrors
+C. Windshield wipers
+D. Seat belts
+
+Answer: A
+Difficulty: Easy
+
+3. What is the main purpose of a car's seat belt?
+
+A. To increase engine power
+B. To improve tyre grip
+C. To keep occupants securely restrained
+D. To cool the passenger cabin
+
+Answer: C
+Difficulty: Easy
+
+4. Which part of a car is used to slow down or stop the vehicle?
+
+A. Brake system
+B. Exhaust system
+C. Fuel tank
+D. Air filter
+
+Answer: A
+Difficulty: Easy
+
+5. What is the main purpose of a car's side mirrors?
+
+A. To cool the engine
+B. To help the driver see beside and behind the vehicle
+C. To increase fuel capacity
+D. To control the vehicle's speed
+
+Answer: B
+Difficulty: Easy
+
 ENGINES & MECHANICS
 
 1. What is the main purpose of a turbocharger?
