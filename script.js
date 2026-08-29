@@ -109,3 +109,24 @@ const feedbackMessage = document.getElementById("feedback-message");
 
 let selectedIndex = null; 
 // tracks the option the user clicked, before confirming
+
+// ============================
+// Display the current question
+// ============================
+function renderQuestion() {
+  const q = quiz.getCurrentQuestion();
+  selectedIndex = null;
+  nextBtn.disabled = true;
+
+  levelBadge.textContent = `Level: ${q.level}`;
+  questionTracker.textContent = `Question ${quiz.currentIndex + 1} of ${quiz.getTotal()}`;
+  questionText.textContent = q.text;
+
+  const progressPercent = (quiz.currentIndex / quiz.getTotal()) * 100;
+  progressBar.style.width = `${progressPercent}%`;
+
+  optionCards.forEach((card, i) => {
+    card.querySelector(".option-text").textContent = q.options[i];
+    card.classList.remove("selected", "correct", "incorrect");
+  });
+}
