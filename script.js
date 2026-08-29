@@ -75,9 +75,9 @@ const rawQuestions = [
   { text: "How many seats does the average vehicle have", options: ["7 Seats", "4 Seats", "5 Seats", "3 Seats"], correctIndex: 2, level: "Easy" },
 
    // --- Medium questions ---
-   { text: "What brand is known for thier GT3 Rs models?", options: ["Porche", "Mercedes", "BMW", "Buggati"], correctIndex: 1, level: "Medium" },
+   { text: "What brand is known for thier GT3 Rs models?", options: ["Porsche", "Mercedes", "BMW", "Buggati"], correctIndex: 0, level: "Medium" },
    { text: "Which JDM car is known as the 'Godzilla' in motorsport circles?", options: ["Toyota Supra", "Nissan Skyline GT-R (R34)", "Mazda RX-7", "Subaru WRX"], correctIndex: 1, level: "Medium" },
-   { text: "What is the most popular powertrain for everday normal vehicles?", options: ["All Wheel Drive", "Front Wheel Drive", "Rear Wheel Drive", "4 Wheel Drive"], correctIndex: 1, level: "Medium" },
+   { text: "What is the most popular powertrain for everday use vehicles?", options: ["All Wheel Drive", "Front Wheel Drive", "Rear Wheel Drive", "4 Wheel Drive"], correctIndex: 1, level: "Medium" },
    { text: "What powertrain is traditionaly used to initiate a drift?", options: ["FWD", "RWD", "AWD", "4WD"], correctIndex: 1, level: "Medium" },
 
    // --- Hard questionns ---
@@ -175,3 +175,22 @@ nextBtn.addEventListener("click", () => {
     renderQuestion();
   }
 });
+
+
+// ============================
+// Results screen
+// ============================
+function showResults() {
+  quizScreen.style.display = "none";
+  resultsScreen.style.display = "block";
+
+  finalScore.textContent = `You scored ${quiz.getScore()} out of ${quiz.getTotal()}`;
+
+  const pct = quiz.getPercentage();
+  if (pct >= 80) feedbackMessage.textContent = "Certified gearhead! 🏁";
+  else if (pct >= 50) feedbackMessage.textContent = "Solid effort — keep tuning your knowledge!";
+  else feedbackMessage.textContent = "Time to hit the workshop and study up!";
+}
+
+
+renderQuestion();
