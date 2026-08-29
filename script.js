@@ -91,3 +91,21 @@ const questions = rawQuestions.map(
 );
 
 const quiz = new Quiz(questions);
+
+
+// ============================
+// 4. DOM references
+// ============================
+const levelBadge = document.getElementById("level-badge");
+const questionTracker = document.getElementById("question-tracker");
+const progressBar = document.getElementById("progress-bar");
+const questionText = document.getElementById("question-text");
+const optionCards = document.querySelectorAll(".option-card");
+const nextBtn = document.getElementById("next-btn");
+const quizScreen = document.getElementById("quiz-screen");
+const resultsScreen = document.getElementById("results-screen");
+const finalScore = document.getElementById("final-score");
+const feedbackMessage = document.getElementById("feedback-message");
+
+let selectedIndex = null; 
+// tracks the option the user clicked, before confirming
