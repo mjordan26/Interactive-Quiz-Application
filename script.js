@@ -1,5 +1,5 @@
 // ============================
-// 1. Question class
+// Question class
 // ============================
 
 class Question {
@@ -17,7 +17,7 @@ class Question {
 
 
 // ============================
-// 2. Quiz class
+// Quiz class
 // ============================
 
 class Quiz {
@@ -65,7 +65,7 @@ class Quiz {
 }
 
 // ============================
-// 3. Question data
+// Question data
 // ============================
 
 const rawQuestions = [
@@ -94,7 +94,7 @@ const quiz = new Quiz(questions);
 
 
 // ============================
-// 4. DOM references
+// DOM references
 // ============================
 const levelBadge = document.getElementById("level-badge");
 const questionTracker = document.getElementById("question-tracker");
@@ -144,4 +144,34 @@ optionCards.forEach(card => {
     selectedIndex = parseInt(card.dataset.index);
     nextBtn.disabled = false;
   });
+});
+
+// ============================
+// Handle Next button
+// ============================
+nextBtn.addEventListener("click", () => {
+  // If answer not yet submitted for this question, submit + show feedback first
+  if (!optionCards[0].classList.contains("answered")) {
+    const wasCorrect = quiz.submitAnswer(selectedIndex);
+
+    optionCards.forEach((card, i) => {
+      card.classList.add("answered");
+      if (i === quiz.getCurrentQuestion().correctIndex) card.classList.add("correct");
+      else if (i === selectedIndex) card.classList.add("incorrect");
+    });
+
+    nextBtn.textContent = quiz.currentIndex + 1 >= quiz.getTotal() ? "See Results" : "Next Question";
+    return;
+  }
+
+  // Second click: actually advance
+  quiz.nextQuestion();
+  optionCards.forEach(card => card.classList.remove("answered"));
+  nextBtn.textContent = "Next Question";
+
+  if (quiz.isComplete()) {
+    showResults();
+  } else {
+    renderQuestion();
+  }
 });
