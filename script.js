@@ -130,3 +130,18 @@ function renderQuestion() {
     card.classList.remove("selected", "correct", "incorrect");
   });
 }
+
+
+// ============================
+// Handle option click
+// ============================
+optionCards.forEach(card => {
+  card.addEventListener("click", () => {
+    if (nextBtn.textContent === "Next Question" && nextBtn.disabled === false && card.classList.contains("locked")) return;
+
+    optionCards.forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+    selectedIndex = parseInt(card.dataset.index);
+    nextBtn.disabled = false;
+  });
+});
