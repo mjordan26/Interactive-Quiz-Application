@@ -162,7 +162,7 @@ const QUESTION_BANK = [
     "Medium",
   ),
   new Question(
-    "What is the Auto Bhan known for?",
+    "What is the autobahn known for?",
     [
       "Road Rules dont apply",
       "No Speed limit",
