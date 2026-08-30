@@ -4,9 +4,9 @@
 class Question {
   constructor(text, options, correctIndex, level) {
     this.text = text;
-    this.options = options; // array of 4 strings
+    this.options = options;        // array of 4 strings
     this.correctIndex = correctIndex;
-    this.level = level; // 'Easy' | 'Medium' | 'Difficult'
+    this.level = level;            // 'Easy' | 'Medium' | 'Difficult'
   }
 
   isCorrect(selectedIndex) {
@@ -63,225 +63,40 @@ class Quiz {
 --------------------------------------------------------- */
 const QUESTION_BANK = [
   // Easy (4)
-  new Question(
-    "Which car brand's logo is a silver ring pattern of four interlocked circles?",
-    ["BMW", "Audi", "Mercedes-Benz", "Volkswagen"],
-    1,
-    "Easy",
-  ),
-  new Question(
-    "What is the world's best-selling car of all time?",
-    ["Ford F-150", "Toyota Corolla", "Volkswagen Beetle", "Honda Civic"],
-    1,
-    "Easy",
-  ),
-  new Question(
-    "Which car brand makes the Wrangler?",
-    ["Jeep", "Ford", "Chevrolet", "GMC"],
-    0,
-    "Easy",
-  ),
-  new Question(
-    "What do you call the front cover over a car's engine?",
-    ["Boot", "Bonnet/Hood", "Fender", "Spoiler"],
-    1,
-    "Easy",
-  ),
-  new Question(
-    "Which country is Ferrari from?",
-    ["France", "Germany", "Italy", "Spain"],
-    2,
-    "Easy",
-  ),
-  new Question(
-    "Which of these is a Toyota model?",
-    ["Civic", "Corolla", "Focus", "Sentra"],
-    1,
-    "Easy",
-  ),
-  new Question(
-    "What shape is the Volkswagen logo?",
-    ["Circle", "Square", "Triangle", "Hexagon"],
-    0,
-    "Easy",
-  ),
-  new Question(
-    "Which car brand makes the Mustang?",
-    ["Chevrolet", "Dodge", "Ford", "Pontiac"],
-    2,
-    "Easy",
-  ),
-  new Question(
-    "Which car brand makes the Camaro?",
-    ["Ford", "Dodge", "Chevrolet", "Pontiac"],
-    2,
-    "Easy",
-  ),
-  new Question(
-    "Which car brand is known for the Civic and Accord?",
-    ["Toyota", "Honda", "Nissan", "Mazda"],
-    1,
-    "Easy",
-  ),
+new Question("What is South Africa's most popular Bakkie?", ["Ford F450", "Toyota Hilux", "Mercedes-Benz X Class", "Ford Raptor"], 1, "Easy"),
+new Question("What is the world's best-selling car of all time?", ["Ford F-150", "Toyota Corolla", "Volkswagen Golf Gti", "Honda Civic"], 1, "Easy"),
+new Question("Which Volkswagen model is most common in South Africa?", ["Polo Vivo", "Golf 7 Gti", "Polo tsi", "Passat"], 0, "Easy"),
+new Question("Which brand is not a German brand?", ["Porsche", "Hyundai", "BMW", "Mercedes"], 1, "Easy"),
+new Question("Which country is Ferrari from?", ["France", "Germany", "Italy", "Spain"], 2, "Easy"),
+new Question("Which of these is a Toyota model?", ["Civic", "Corolla", "Focus", "Sentra"], 1, "Easy"),
+new Question("Which brand is known for their 3 Series?", ["Audi", "BMW", "Mercedes", "Volvo"], 1, "Easy"),
+new Question("Which car brand makes the Mustang?", ["Chevrolet", "Dodge", "Ford", "Pontiac"], 2, "Easy"),
+new Question("Which car brand is native to the US market?", ["Ford", "Dodge", "Chevrolet", "Pontiac"], 1, "Easy"),
+new Question("Which car brand is known for the Civic and Accord?", ["Toyota", "Honda", "Nissan", "Mazda"], 1, "Easy"),
 
   // Medium (10)
-  new Question(
-    "What year was the first Volkswagen Beetle produced?",
-    ["1938", "1948", "1958", "1968"],
-    0,
-    "Medium",
-  ),
-  new Question(
-    "Which company manufactures the Corvette?",
-    ["Ford", "Chevrolet", "Dodge", "Pontiac"],
-    1,
-    "Medium",
-  ),
-  new Question(
-    "Which company manufactures the Golf GTI?",
-    ["Audi", "Volkswagen", "Skoda", "SEAT"],
-    1,
-    "Medium",
-  ),
-  new Question(
-    "What does 'ABS' stand for in a car's braking system?",
-    [
-      "Automatic Braking Sequence",
-      "Anti-lock Braking System",
-      "Advanced Brake Sensor",
-      "Automatic Brake Stabilizer",
-    ],
-    1,
-    "Medium",
-  ),
-  new Question(
-    "Which car is widely credited with popularizing the hot hatch segment?",
-    ["Volkswagen Golf GTI", "Ford Fiesta ST", "Renault Clio", "Peugeot 205"],
-    0,
-    "Medium",
-  ),
-  new Question(
-    "What type of engine does the Mazda RX-7 famously use?",
-    ["Inline-4", "V6", "Rotary (Wankel)", "Flat-6"],
-    2,
-    "Medium",
-  ),
-  new Question(
-    "Which brand's logo features a blue oval?",
-    ["Chevrolet", "Ford", "Dodge", "Chrysler"],
-    1,
-    "Medium",
-  ),
-  new Question(
-    "What is the typical purpose of a turbocharger?",
-    [
-      "Increase fuel economy only",
-      "Reduce engine weight",
-      "Force more air into the engine to boost power",
-      "Cool the engine",
-    ],
-    2,
-    "Medium",
-  ),
-  new Question(
-    "Which of these is a hybrid vehicle?",
-    ["Toyota Prius", "Ford Mustang", "Honda Civic Type R", "Chevrolet Camaro"],
-    0,
-    "Medium",
-  ),
-  new Question(
-    "Which car brand makes the Focus?",
-    ["Ford", "Vauxhall", "Renault", "Peugeot"],
-    0,
-    "Medium",
-  ),
+new Question('Which BMW model was created in 1982 that dominated multiple racing championships?', ['The E30 M3', 'The E46 M3', 'The M1', 'The 325is'], 0, 'Medium'),
+new Question('Which company does NOT compete in motorsports?', ['Ford', 'Rolls Royce', 'Mercedes', 'Audi'], 1, 'Medium'),
+new Question("What determines a sport car's overall performace?", ["Horsepower", "Weight to power ratio", "Grip", "Speed"], 1, "Medium"),
+new Question("Where is the Nürburgring located?", ["Australia", "Germany", "South Africa", "United States of America"], 1, "Medium"),
+new Question("Which car is widely credited with popularizing the hot hatch segment?", ["Volkswagen Golf GTI", "Ford Fiesta ST", "Renault Clio", "Peugeot 205"], 0, "Medium"),
+new Question("What type of engine does the Mazda RX-7 famously use?", ["Inline-4", "V6", "Rotary (Wankel)", "Flat-6"], 2, "Medium"),
+new Question("What is the Auto Bhan known for?", ["Road Rules dont apply", "No Speed limit", "Safest High-Way/Free-Way", "No toll gates"], 1, "Medium"),
+new Question("What is the typical purpose of a turbocharger/supercharger?", ["Increase fuel economy only", "Reduce engine weight", "Force more air into the engine to boost power", "Cool the engine"], 2, "Medium"),
+new Question("What is the purpose of an electric motor in a sport cars?", ["Increases the weight of a car", "Makes the car faster", "Provides instant Torque", "Lowers the 0-60 time (0-100km/h)"], 2, "Medium"),
+new Question("What allows a car to spin its tires?", ["NOS", "High Horsepower", "Low Gross Vehicele Mass", "High Torque"], 3, "Medium"),
 
   // Difficult (10)
-  new Question(
-    "What is the firing order of a standard inline-4 engine?",
-    ["1-2-3-4", "1-3-4-2", "1-3-2-4", "1-4-3-2"],
-    1,
-    "Difficult",
-  ),
-  new Question(
-    "Which company pioneered the first mass-produced double-wishbone suspension?",
-    ["Citroën", "Cadillac", "Lancia", "Packard"],
-    1,
-    "Difficult",
-  ),
-  new Question(
-    "What does 'VVT-i' stand for in Toyota engines?",
-    [
-      "Variable Valve Timing with intelligence",
-      "Vertical Valve Torque - injected",
-      "Variable Vacuum Timing - internal",
-      "Variable Velocity Turbo - intercooled",
-    ],
-    0,
-    "Difficult",
-  ),
-  new Question(
-    "Which Formula 1 team pioneered the use of the 'active suspension' system in the late 1980s/early 1990s?",
-    ["McLaren", "Ferrari", "Lotus", "Williams"],
-    2,
-    "Difficult",
-  ),
-  new Question(
-    "What is 'torque steer' most commonly caused by?",
-    [
-      "Unequal length driveshafts in FWD cars",
-      "Worn brake pads",
-      "Underinflated rear tyres",
-      "Excess turbo lag",
-    ],
-    0,
-    "Difficult",
-  ),
-  new Question(
-    "Which material is most commonly used for modern F1 brake discs?",
-    [
-      "Cast iron",
-      "Carbon-carbon composite",
-      "Ceramic-coated steel",
-      "Titanium alloy",
-    ],
-    1,
-    "Difficult",
-  ),
-  new Question(
-    "What is the primary purpose of a 'limited-slip differential'?",
-    [
-      "Improve fuel economy",
-      "Reduce unsprung weight",
-      "Transfer power to the wheel with more grip",
-      "Lower the car's center of gravity",
-    ],
-    2,
-    "Difficult",
-  ),
-  new Question(
-    "What phenomenon describes a turbocharged engine's delayed throttle response?",
-    ["Detonation", "Turbo lag", "Engine braking", "Valve float"],
-    1,
-    "Difficult",
-  ),
-  new Question(
-    "Which suspension geometry change causes a tyre to lean inward at the top when cornering?",
-    ["Toe-in", "Positive camber", "Negative camber", "Bump steer"],
-    2,
-    "Difficult",
-  ),
-  new Question(
-    "What is the main function of a wastegate on a turbocharged engine?",
-    [
-      "Cool the intercooler",
-      "Regulate boost pressure by venting exhaust gas",
-      "Lubricate the turbo bearings",
-      "Reduce intake air temperature",
-    ],
-    1,
-    "Difficult",
-  ),
+new Question("What is the MAIN purpouse of an altinator?", ["Charges the battery", "Powers all accessories of a car while running", "Controls Fuel/Air mixuture", "Lowers engine performance"], 1, "Difficult"),
+new Question("What is a the main purpouse of a differential (Diff)?", ["Controls the wheel speed", "Allows the wheels to rotate at diffrent speeds when turning", "Assist ABS (Anti-Lock Brake System)", "Allows the car to drift"], 1, "Difficult"),
+new Question("What does 'VVT-i' stand for in Toyota engines?", ["Variable Valve Timing with intelligence", "Vertical Valve Torque - injected", "Variable Vacuum Timing - internal", "Variable Velocity Turbo - intercooled"], 0, "Difficult"),
+new Question("What issue did the founder of Lamborghini bring up to the founder of Ferrari?", ["The performance of the Ferrari 250 GT", "There was no issues", "Frustration with the clutch design", "A colaboration deal between the two brands"], 2, "Difficult"),
+new Question("What causes over steer?", ["When the rear wheels lose traction while turning", "Worn brake pads", "Underinflated rear tyres", "Excess turbo lag"], 0, "Difficult"),
+new Question("Which material is most commonly used for modern F1 brake discs?", ["Cast iron", "Carbon Ceramic Brakes", "Ceramic-coated steel", "Titanium alloy"], 1, "Difficult"),
+new Question("What causes under steer'?", ["Uneven weight distribution", "High Gross Vehicle Weight", "When a FWD car loses traction during a corner", "Lowering a vehicles center of gravity"], 2, "Difficult"),
+new Question("What describes a turbocharged engine's delay in throttle response?", ["Detonation", "Turbo lag", "Engine braking", "Valve float"], 1, "Difficult"),
+new Question("What are the three main things needed for an engine to run?", ["Battery, Altinator, fuse's", "Oil, Water, Air", "Fuel, Spark, Air", "Turbocharger, Air, Combustion"], 2, "Difficult"),
+new Question("What is the main function of a turbocharger?", ["Cool the intercooler", "Forces presurised air into the combustion chamber allowing for more fuel to be added, increasing power", "Lubricate the turbo bearings", "Reduce intake air temperature"], 1, "Difficult"),
 ];
 
 const QUIZ_TIMER_SECONDS = 20;
@@ -295,68 +110,66 @@ class QuizFlow {
     this.answerLocked = false;
 
     this.dom = {
-      quizScreen: document.getElementById("quiz-screen"),
-      resultsScreen: document.getElementById("results-screen"),
-      levelBadge: document.getElementById("level-badge"),
-      questionTracker: document.getElementById("question-tracker"),
-      progressBar: document.getElementById("progress-bar"),
-      questionText: document.getElementById("question-text"),
-      optionCards: Array.from(
-        document.querySelectorAll("#answer-options .option-card"),
-      ),
-      nextBtn: document.getElementById("next-btn"),
-      finalScore: document.getElementById("final-score"),
-      feedbackMessage: document.getElementById("feedback-message"),
+      quizScreen: document.getElementById('quiz-screen'),
+      resultsScreen: document.getElementById('results-screen'),
+      levelBadge: document.getElementById('level-badge'),
+      questionTracker: document.getElementById('question-tracker'),
+      progressBar: document.getElementById('progress-bar'),
+      questionText: document.getElementById('question-text'),
+      optionCards: Array.from(document.querySelectorAll('#answer-options .option-card')),
+      nextBtn: document.getElementById('next-btn'),
+      finalScore: document.getElementById('final-score'),
+      feedbackMessage: document.getElementById('feedback-message'),
     };
 
     // Pull theme colors straight from the CSS custom properties
     // so feedback stays visually consistent with style.css.
     const rootStyles = getComputedStyle(document.documentElement);
     this.colors = {
-      primaryRed:
-        rootStyles.getPropertyValue("--primary-red").trim() || "#E53E3E",
-      border: rootStyles.getPropertyValue("--border-color").trim() || "#FED7D7",
-      success: "#38A169", // green, not in the current palette — used for correct feedback
-      successTint: "#F0FFF4",
-      dangerTint: "#FFF5F5",
+      primaryRed: rootStyles.getPropertyValue('--primary-red').trim() || '#E53E3E',
+      border: rootStyles.getPropertyValue('--border-color').trim() || '#FED7D7',
+      success: '#38A169',      // green, not in the current palette — used for correct feedback
+      successTint: '#F0FFF4',
+      dangerTint: '#FFF5F5',
     };
 
     this.injectScoreBadge();
     this.injectReviewContainer();
     this.bindEvents();
   }
+  
 
   /* ---- one-time DOM setup that doesn't require editing quiz.html ---- */
 
   injectScoreBadge() {
-    const badge = document.createElement("span");
-    badge.id = "score-badge";
-    badge.className = "logo";
-    badge.style.fontSize = "1.1rem";
+    const badge = document.createElement('span');
+    badge.id = 'score-badge';
+    badge.className = 'logo';
+    badge.style.fontSize = '1.1rem';
     badge.style.background = this.colors.border;
-    badge.style.padding = "0.3rem 0.8rem";
-    badge.style.borderRadius = "20px";
-    badge.textContent = "Score: 0";
-    this.dom.questionTracker.insertAdjacentElement("afterend", badge);
+    badge.style.padding = '0.3rem 0.8rem';
+    badge.style.borderRadius = '20px';
+    badge.textContent = 'Score: 0';
+    this.dom.questionTracker.insertAdjacentElement('afterend', badge);
     this.dom.scoreBadge = badge;
   }
 
   injectReviewContainer() {
-    const wrapper = document.createElement("div");
-    wrapper.id = "review-list";
-    wrapper.style.marginTop = "2rem";
-    wrapper.style.textAlign = "left";
-    wrapper.style.display = "grid";
-    wrapper.style.gap = "0.75rem";
-    this.dom.feedbackMessage.insertAdjacentElement("afterend", wrapper);
+    const wrapper = document.createElement('div');
+    wrapper.id = 'review-list';
+    wrapper.style.marginTop = '2rem';
+    wrapper.style.textAlign = 'left';
+    wrapper.style.display = 'grid';
+    wrapper.style.gap = '0.75rem';
+    this.dom.feedbackMessage.insertAdjacentElement('afterend', wrapper);
     this.dom.reviewList = wrapper;
   }
 
   bindEvents() {
     this.dom.optionCards.forEach((card, i) => {
-      card.addEventListener("click", () => this.handleAnswer(i));
+      card.addEventListener('click', () => this.handleAnswer(i));
     });
-    this.dom.nextBtn.addEventListener("click", () => this.handleNext());
+    this.dom.nextBtn.addEventListener('click', () => this.handleNext());
   }
 
   /* ---- rendering ---- */
@@ -378,24 +191,22 @@ class QuizFlow {
     this.dom.progressBar.style.width = `${progressPct}%`;
 
     this.dom.optionCards.forEach((card, i) => {
-      const textEl = card.querySelector(".option-text");
+      const textEl = card.querySelector('.option-text');
       textEl.textContent = question.options[i];
-      card.style.borderColor = "";
-      card.style.backgroundColor = "";
-      card.style.cursor = "pointer";
-      card.classList.remove("option-card--locked");
+      card.style.borderColor = '';
+      card.style.backgroundColor = '';
+      card.style.cursor = 'pointer';
+      card.classList.remove('option-card--locked');
     });
 
     this.dom.nextBtn.disabled = true;
     this.dom.nextBtn.textContent =
-      this.quiz.currentIndex === this.quiz.total - 1
-        ? "See Results"
-        : "Next Question";
+      this.quiz.currentIndex === this.quiz.total - 1 ? 'See Results' : 'Next Question';
 
     // retrigger the fade-in animation on the swapped-in question
-    this.dom.quizScreen.classList.remove("fade-in");
-    void this.dom.quizScreen.offsetWidth;
-    this.dom.quizScreen.classList.add("fade-in");
+    this.dom.quizScreen.classList.remove('fade-in');
+    void this.dom.quizScreen.offsetWidth; 
+    this.dom.quizScreen.classList.add('fade-in');
   }
 
   handleAnswer(selectedIndex) {
@@ -406,8 +217,8 @@ class QuizFlow {
     this.quiz.submitAnswer(selectedIndex);
 
     this.dom.optionCards.forEach((card, i) => {
-      card.classList.add("option-card--locked");
-      card.style.cursor = "default";
+      card.classList.add('option-card--locked');
+      card.style.cursor = 'default';
       if (i === question.correctIndex) {
         card.style.borderColor = this.colors.success;
         card.style.backgroundColor = this.colors.successTint;
@@ -429,14 +240,15 @@ class QuizFlow {
       this.renderQuestion();
     }
   }
+  
 
   /* ---- results ---- */
 
   showResults() {
-    this.dom.progressBar.style.width = "100%";
-    this.dom.quizScreen.style.display = "none";
-    this.dom.resultsScreen.style.display = "";
-    this.dom.resultsScreen.classList.add("fade-in");
+    this.dom.progressBar.style.width = '100%';
+    this.dom.quizScreen.style.display = 'none';
+    this.dom.resultsScreen.style.display = '';
+    this.dom.resultsScreen.classList.add('fade-in');
 
     const pct = this.quiz.getPercentage();
     this.dom.finalScore.textContent = `You scored ${this.quiz.score} out of ${this.quiz.total} (${pct}%)`;
@@ -445,15 +257,10 @@ class QuizFlow {
     this.dom.reviewList.innerHTML = this.quiz.questions
       .map((q, i) => {
         const answer = this.quiz.answers[i];
-        const yourAnswer =
-          answer.selectedIndex >= 0
-            ? q.options[answer.selectedIndex]
-            : "No answer";
-        const border = answer.correct
-          ? this.colors.success
-          : this.colors.primaryRed;
+        const yourAnswer = answer.selectedIndex >= 0 ? q.options[answer.selectedIndex] : 'No answer';
+        const border = answer.correct ? this.colors.success : this.colors.primaryRed;
         const correctLine = answer.correct
-          ? ""
+          ? ''
           : `<br><span style="color:${this.colors.success}; font-weight:600;">Correct answer: ${q.getCorrectAnswerText()}</span>`;
         return `
           <div style="border-left: 4px solid ${border}; background:#fff; border-radius:8px; padding:0.9rem 1rem; box-shadow: var(--shadow-sm);">
@@ -463,14 +270,14 @@ class QuizFlow {
           </div>
         `;
       })
-      .join("");
+      .join('');
   }
 
   getFeedback(pct) {
-    if (pct === 100) return "Perfect score — true gearhead status confirmed!";
-    if (pct >= 80) return "Great run — you really know your cars.";
-    if (pct >= 50) return "Solid effort. A rematch could push that higher.";
-    return "Rough round — hit Try Again and give it another shot.";
+    if (pct === 100) return 'Perfect score';
+    if (pct >= 80) return 'Great run — you really know your cars.';
+    if (pct >= 50) return 'Solid effort. A rematch could push that higher.';
+    return 'Rough round — hit Try Again and give it another shot.';
   }
 }
 // ============================
@@ -539,31 +346,28 @@ class Timer {
 // ============================
 
 QuizFlow.prototype.injectTimerBar = function () {
-  const track = document.createElement("div");
-  track.style.width = "100%";
-  track.style.height = "6px";
+  const track = document.createElement('div');
+  track.style.width = '100%';
+  track.style.height = '6px';
   track.style.background = this.colors.border;
-  track.style.borderRadius = "3px";
-  track.style.overflow = "hidden";
-  track.style.margin = "0 0 1.5rem 0";
+  track.style.borderRadius = '3px';
+  track.style.overflow = 'hidden';
+  track.style.margin = '0 0 1.5rem 0';
 
-  const fill = document.createElement("div");
-  fill.id = "timer-fill";
-  fill.style.height = "100%";
-  fill.style.width = "100%";
+  const fill = document.createElement('div');
+  fill.id = 'timer-fill';
+  fill.style.height = '100%';
+  fill.style.width = '100%';
   fill.style.background = this.colors.primaryRed;
-  fill.style.transition = "width 1s linear, background-color 0.3s ease";
+  fill.style.transition = 'width 1s linear, background-color 0.3s ease';
 
   track.appendChild(fill);
 
-  const progressContainer = document.querySelector(".progress-container");
+  const progressContainer = document.querySelector('.progress-container');
   if (progressContainer) {
-    progressContainer.insertAdjacentElement("afterend", track);
+    progressContainer.insertAdjacentElement('afterend', track);
   } else {
-    this.dom.questionText.parentElement.insertAdjacentElement(
-      "beforebegin",
-      track,
-    );
+    this.dom.questionText.parentElement.insertAdjacentElement('beforebegin', track);
   }
   this.dom.timerFill = fill;
 };
@@ -607,7 +411,7 @@ QuizFlow.prototype.playTick = function (remaining, duration) {
       for (let i = 0; i < 3; i++) {
         const o = ctx.createOscillator();
         const g = ctx.createGain();
-        o.type = "sawtooth";
+        o.type = 'sawtooth';
         o.frequency.value = baseFreq + i * 140;
         g.gain.setValueAtTime(0.09 / (i + 1), now + i * 0.06);
         g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.06 + 0.05);
@@ -629,19 +433,16 @@ QuizFlow.prototype.playTick = function (remaining, duration) {
     const shimmer = ctx.createOscillator();
     const shimmerGain = ctx.createGain();
 
-    osc.type = "square";
+    osc.type = 'square';
     osc.frequency.value = frequency;
 
-    shimmer.type = "triangle";
+    shimmer.type = 'triangle';
     shimmer.frequency.value = frequency * 2.5;
 
     gain.gain.setValueAtTime(gainValue, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + toneLength);
     shimmerGain.gain.setValueAtTime(gainValue * 0.25, ctx.currentTime);
-    shimmerGain.gain.exponentialRampToValueAtTime(
-      0.001,
-      ctx.currentTime + toneLength,
-    );
+    shimmerGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + toneLength);
 
     osc.connect(gain);
     shimmer.connect(shimmerGain);
@@ -653,9 +454,7 @@ QuizFlow.prototype.playTick = function (remaining, duration) {
     osc.stop(ctx.currentTime + toneLength);
     shimmer.stop(ctx.currentTime + toneLength);
   } catch (e) {
-    console.warn(
-      "AudioContext not supported or user interaction required for sound playback.",
-    );
+    console.warn('AudioContext not supported or user interaction required for sound playback.');
   }
 };
 
@@ -669,7 +468,7 @@ QuizFlow.prototype.playBuzzer = function () {
     const now = ctx.currentTime;
     const o = ctx.createOscillator();
     const g = ctx.createGain();
-    o.type = "triangle";
+    o.type = 'triangle';
     o.frequency.value = 110;
     g.gain.setValueAtTime(0.001, now);
     g.gain.linearRampToValueAtTime(0.18, now + 0.02);
@@ -679,9 +478,7 @@ QuizFlow.prototype.playBuzzer = function () {
     o.start(now);
     o.stop(now + 0.9);
   } catch (e) {
-    console.warn(
-      "AudioContext not supported or user interaction required for sound playback.",
-    );
+    console.warn('AudioContext not supported or user interaction required for sound playback.');
   }
 };
 
@@ -696,42 +493,37 @@ QuizFlow.prototype.startTimer = function () {
       if (this.dom.timerFill) {
         this.dom.timerFill.style.transition = `width ${Math.max(0.06, nextDelayMs / 1000)}s linear, background-color 0.3s ease`;
         this.dom.timerFill.style.width = `${pct}%`;
-        this.dom.timerFill.style.background =
-          remaining <= 5 ? "#B91C1C" : this.colors.primaryRed;
+        this.dom.timerFill.style.background = remaining <= 5 ? '#B91C1C' : this.colors.primaryRed;
       }
       this.playTick(remaining, duration);
     },
     () => {
       this.playBuzzer();
       this.handleAnswer(-1);
-    },
+    }
   );
   this.timer.start();
 };
 
 // DomContentLoaded event listener to initialize the quiz
-document.addEventListener("DOMContentLoaded", () => {
-  const isQuizPage = document.getElementById("quiz-screen");
+document.addEventListener('DOMContentLoaded', () => {
+  const isQuizPage = document.getElementById('quiz-screen');
   if (!isQuizPage) return;
 
   const params = new URLSearchParams(window.location.search);
-  const requestedLevel = (params.get("level") || "").toLowerCase();
+  const requestedLevel = (params.get('level') || '').toLowerCase();
 
-  const levelMap = { easy: "Easy", medium: "Medium", difficult: "Difficult" };
+  const levelMap = { easy: 'Easy', medium: 'Medium', difficult: 'Difficult' };
   const targetLevel = levelMap[requestedLevel];
 
   const questionsForRun = targetLevel
-    ? QUESTION_BANK.filter((q) => q.level === targetLevel)
+    ? QUESTION_BANK.filter(q => q.level === targetLevel)
     : QUESTION_BANK;
 
   if (targetLevel && questionsForRun.length === 0) {
-    console.warn(
-      `No questions found for level "${targetLevel}" — showing all questions instead.`,
-    );
+    console.warn(`No questions found for level "${targetLevel}" — showing all questions instead.`);
   }
 
-  const flow = new QuizFlow(
-    questionsForRun.length ? questionsForRun : QUESTION_BANK,
-  );
+  const flow = new QuizFlow(questionsForRun.length ? questionsForRun : QUESTION_BANK);
   flow.start();
 });
