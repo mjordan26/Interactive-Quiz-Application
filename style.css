@@ -134,6 +134,10 @@ footer {
   gap: 1.75rem;
 }
 
+#answer-options.features {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .feature-card, .topic-card {
   background-color: var(--card-bg);
   padding: 2rem;
