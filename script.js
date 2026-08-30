@@ -99,6 +99,8 @@ new Question("Which suspension geometry change causes a tyre to lean inward at t
 new Question("What is the main function of a wastegate on a turbocharged engine?", ["Cool the intercooler", "Regulate boost pressure by venting exhaust gas", "Lubricate the turbo bearings", "Reduce intake air temperature"], 1, "Difficult"),
 ];
 
+const QUIZ_TIMER_SECONDS = 10;
+
 /* ---------------------------------------------------------
    3. QuizFlow — controller for quiz.html
 --------------------------------------------------------- */
@@ -314,7 +316,7 @@ class Timer {
 }
 
 // ============================
-// Add a countdown timer to QuizFlow without editing the class above
+// Counter for the timer bar and ticking sound
 // ============================
 
 QuizFlow.prototype.injectTimerBar = function () {
@@ -344,21 +346,6 @@ QuizFlow.prototype.injectTimerBar = function () {
   this.dom.timerFill = fill;
 };
 
-QuizFlow.prototype.startTimer = function () {
-  const QUESTION_SECONDS = 10; 
-  if (this.timer) this.timer.stop();
-  this.timer = new Timer(
-    QUESTION_SECONDS,
-    (remaining, duration) => {
-      const pct = Math.max(0, (remaining / duration) * 100);
-      this.dom.timerFill.style.width = `${pct}%`;
-      this.dom.timerFill.style.background = remaining <= 5 ? '#B91C1C' : this.colors.primaryRed;
-    },
-    () => this.handleAnswer(-1) 
-  );
-  this.timer.start();
-};
-
 const _originalRenderQuestion = QuizFlow.prototype.renderQuestion;
 QuizFlow.prototype.renderQuestion = function () {
   _originalRenderQuestion.call(this);
@@ -378,6 +365,47 @@ QuizFlow.prototype.showResults = function () {
   if (this.timer) this.timer.stop();
   _originalShowResults.call(this);
 };
+// ============================
+// ticking sound for the timer
+// ============================
+
+QuizFlow.prototype.playTick = function () {
+  try {
+    if (!this._audioCtx) {
+      this._audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    const ctx = this._audioCtx;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'square';
+    osc.frequency.value = 880;
+    gain.gain.setValueAtTime(0.06, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.08);
+  } catch (e) {
+    console.warn('AudioContext not supported or user interaction required for sound playback.');
+  }
+};
+
+QuizFlow.prototype.startTimer = function () {
+  if (this.timer) this.timer.stop();
+  this.timer = new Timer(
+    QUIZ_TIMER_SECONDS,
+    (remaining, duration) => {
+      const pct = Math.max(0, (remaining / duration) * 100);
+      this.dom.timerFill.style.width = `${pct}%`;
+      this.dom.timerFill.style.background = remaining <= 5 ? '#B91C1C' : this.colors.primaryRed;
+      this.playTick();
+    },
+    () => this.handleAnswer(-1)
+  );
+  this.timer.start();
+};
+
+// DomContentLoaded event listener to initialize the quiz
 document.addEventListener('DOMContentLoaded', () => {
   const isQuizPage = document.getElementById('quiz-screen');
   if (!isQuizPage) return;
