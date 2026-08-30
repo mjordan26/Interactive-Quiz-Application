@@ -59,8 +59,7 @@ class Quiz {
 }
 
 /* ---------------------------------------------------------
-   PLACEHOLDER QUESTION BANK
-   Chiwo swap this out with your own questions.
+   Questions
 --------------------------------------------------------- */
 const QUESTION_BANK = [
   // Easy (4)
@@ -69,13 +68,19 @@ const QUESTION_BANK = [
   new Question('Which fuel is used in a diesel engine?', ['Petrol', 'Diesel', 'Ethanol', 'Propane'], 1, 'Easy'),
   new Question('Which car brand is known for the Mustang?', ['Chevrolet', 'Dodge', 'Ford', 'Toyota'], 2, 'Easy'),
 
-  // Medium (3)
-  new Question('What year was the first Volkswagen Beetle produced?', ['1938', '1948', '1958', '1968'], 0, 'Medium'),
-  new Question('Which company manufactures the Corvette?', ['Ford', 'Chevrolet', 'Dodge', 'Pontiac'], 1, 'Medium'),
-  new Question('What does "RPM" measure in an engine?', ['Fuel efficiency', 'Revolutions per minute', 'Road pressure metric', 'Ride performance mode'], 1, 'Medium'),
+  // Medium (10)
+new Question('What year was the first Volkswagen Beetle produced?', ['1938', '1948', '1958', '1968'], 0, 'Medium'),
+new Question('Which company manufactures the Corvette?', ['Ford', 'Chevrolet', 'Dodge', 'Pontiac'], 1, 'Medium'),
+new Question("Which company manufactures the Golf GTI?", ["Audi", "Volkswagen", "Skoda", "SEAT"], 1, "Medium"),
+new Question("What does 'ABS' stand for in a car's braking system?", ["Automatic Braking Sequence", "Anti-lock Braking System", "Advanced Brake Sensor", "Automatic Brake Stabilizer"], 1, "Medium"),
+new Question("Which car is widely credited with popularizing the hot hatch segment?", ["Volkswagen Golf GTI", "Ford Fiesta ST", "Renault Clio", "Peugeot 205"], 0, "Medium"),
+new Question("What type of engine does the Mazda RX-7 famously use?", ["Inline-4", "V6", "Rotary (Wankel)", "Flat-6"], 2, "Medium"),
+new Question("Which brand's logo features a blue oval?", ["Chevrolet", "Ford", "Dodge", "Chrysler"], 1, "Medium"),
+new Question("What is the typical purpose of a turbocharger?", ["Increase fuel economy only", "Reduce engine weight", "Force more air into the engine to boost power", "Cool the engine"], 2, "Medium"),
+new Question("Which of these is a hybrid vehicle?", ["Toyota Prius", "Ford Mustang", "Honda Civic Type R", "Chevrolet Camaro"], 0, "Medium"),
 
-  // Difficult (3)
-  new Question("What is the firing order of a standard inline-4 engine?", ["1-2-3-4", "1-3-4-2", "1-3-2-4", "1-4-3-2"], 1, "Difficult"),
+  // Difficult (10)
+new Question("What is the firing order of a standard inline-4 engine?", ["1-2-3-4", "1-3-4-2", "1-3-2-4", "1-4-3-2"], 1, "Difficult"),
 new Question("Which company pioneered the first mass-produced double-wishbone suspension?", ["Citroën", "Cadillac", "Lancia", "Packard"], 1, "Difficult"),
 new Question("What does 'VVT-i' stand for in Toyota engines?", ["Variable Valve Timing with intelligence", "Vertical Valve Torque - injected", "Variable Vacuum Timing - internal", "Variable Velocity Turbo - intercooled"], 0, "Difficult"),
 new Question("Which Formula 1 team pioneered the use of the 'active suspension' system in the late 1980s/early 1990s?", ["McLaren", "Ferrari", "Lotus", "Williams"], 2, "Difficult"),
