@@ -293,15 +293,23 @@ class Timer {
     this.intervalId = null;
   }
 
+  getDelayMsFor(remaining) {
+    const progressRatio = remaining / this.duration;
+    return Math.max(150, Math.round(progressRatio * 1000));
+  }
+
   scheduleNextTick() {
-    const progressRatio = this.remaining / this.duration;
-    const delayMs = Math.max(150, Math.round(progressRatio * 1000));
+    const delayMs = this.getDelayMsFor(this.remaining);
 
     this.intervalId = setTimeout(() => {
       if (this.remaining <= 0) return;
 
+      // decrement first so onTick receives the new remaining value
       this.remaining = Math.max(0, this.remaining - 1);
-      this.onTick(this.remaining, this.duration);
+
+      // compute next delay based on the new remaining time
+      const nextDelay = this.getDelayMsFor(this.remaining);
+      this.onTick(this.remaining, this.duration, nextDelay);
 
       if (this.remaining <= 0) {
         this.stop();
@@ -316,7 +324,12 @@ class Timer {
   start() {
     this.stop();
     this.remaining = this.duration;
-    this.onTick(this.remaining, this.duration);
+
+    // let the caller know how long until the next tick so the UI
+    // can animate the bar smoothly for that duration
+    const nextDelay = this.getDelayMsFor(this.remaining);
+    this.onTick(this.remaining, this.duration, nextDelay);
+
     this.scheduleNextTick();
   }
 
@@ -390,6 +403,27 @@ QuizFlow.prototype.playTick = function (remaining, duration) {
 
     const ctx = this._audioCtx;
     const urgency = 1 - (duration ? remaining / duration : 0);
+
+    // Final-warning pattern: rapid three chirps when <= 5s remaining
+    if (remaining <= 5 && remaining > 0) {
+      const baseFreq = 700 + urgency * 1400;
+      const now = ctx.currentTime;
+      for (let i = 0; i < 3; i++) {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'sawtooth';
+        o.frequency.value = baseFreq + i * 140;
+        g.gain.setValueAtTime(0.09 / (i + 1), now + i * 0.06);
+        g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.06 + 0.05);
+        o.connect(g);
+        g.connect(ctx.destination);
+        o.start(now + i * 0.06);
+        o.stop(now + i * 0.06 + 0.05);
+      }
+      return;
+    }
+
+    // Standard single tick (brighter, layered)
     const frequency = 650 + urgency * 1400;
     const toneLength = Math.max(0.03, 0.11 - urgency * 0.07);
     const gainValue = 0.08 + urgency * 0.06;
@@ -424,17 +458,49 @@ QuizFlow.prototype.playTick = function (remaining, duration) {
   }
 };
 
+// Buzzer sound at expiry
+QuizFlow.prototype.playBuzzer = function () {
+  try {
+    if (!this._audioCtx) {
+      this._audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    const ctx = this._audioCtx;
+    const now = ctx.currentTime;
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = 'triangle';
+    o.frequency.value = 110;
+    g.gain.setValueAtTime(0.001, now);
+    g.gain.linearRampToValueAtTime(0.18, now + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.001, now + 0.9);
+    o.connect(g);
+    g.connect(ctx.destination);
+    o.start(now);
+    o.stop(now + 0.9);
+  } catch (e) {
+    console.warn('AudioContext not supported or user interaction required for sound playback.');
+  }
+};
+
 QuizFlow.prototype.startTimer = function () {
   if (this.timer) this.timer.stop();
   this.timer = new Timer(
     QUIZ_TIMER_SECONDS,
-    (remaining, duration) => {
+    (remaining, duration, nextDelayMs) => {
       const pct = Math.max(0, (remaining / duration) * 100);
-      this.dom.timerFill.style.width = `${pct}%`;
-      this.dom.timerFill.style.background = remaining <= 5 ? '#B91C1C' : this.colors.primaryRed;
+      // set transition duration to match the next scheduled tick so the bar
+      // shrinks smoothly in sync with the audio cadence
+      if (this.dom.timerFill) {
+        this.dom.timerFill.style.transition = `width ${Math.max(0.06, nextDelayMs / 1000)}s linear, background-color 0.3s ease`;
+        this.dom.timerFill.style.width = `${pct}%`;
+        this.dom.timerFill.style.background = remaining <= 5 ? '#B91C1C' : this.colors.primaryRed;
+      }
       this.playTick(remaining, duration);
     },
-    () => this.handleAnswer(-1)
+    () => {
+      this.playBuzzer();
+      this.handleAnswer(-1);
+    }
   );
   this.timer.start();
 };
