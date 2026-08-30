@@ -84,6 +84,7 @@ new Question("What type of engine does the Mazda RX-7 famously use?", ["Inline-4
 new Question("Which brand's logo features a blue oval?", ["Chevrolet", "Ford", "Dodge", "Chrysler"], 1, "Medium"),
 new Question("What is the typical purpose of a turbocharger?", ["Increase fuel economy only", "Reduce engine weight", "Force more air into the engine to boost power", "Cool the engine"], 2, "Medium"),
 new Question("Which of these is a hybrid vehicle?", ["Toyota Prius", "Ford Mustang", "Honda Civic Type R", "Chevrolet Camaro"], 0, "Medium"),
+new Question("Which car brand makes the Focus?", ["Ford", "Vauxhall", "Renault", "Peugeot"], 0, "Medium"),
 
   // Difficult (10)
 new Question("What is the firing order of a standard inline-4 engine?", ["1-2-3-4", "1-3-4-2", "1-3-2-4", "1-4-3-2"], 1, "Difficult"),
