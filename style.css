@@ -1,13 +1,13 @@
- /*1.GLOBAL VARIABLES & RESET*/
+/*1.GLOBAL VARIABLES & RESET*/
 :root {
   /* Light Red Palette */
-  --bg-color: #FFF5F5;            /* Soft light red background */
-  --card-bg: #FFFFFF;             /* Crisp white for cards/containers */
-  --primary-red: #E53E3E;         /* Main light red brand accent */
-  --primary-red-hover: #C53030;   /* Deeper red for hover states */
-  --text-dark: #2D3748;           /* Primary text color */
-  --text-muted: #718096;          /* Subtitle text color */
-  --border-color: #FED7D7;        /* Soft red border tint */
+  --bg-color: #fff5f5; /* Soft light red background */
+  --card-bg: #ffffff; /* Crisp white for cards/containers */
+  --primary-red: #e53e3e; /* Main light red brand accent */
+  --primary-red-hover: #c53030; /* Deeper red for hover states */
+  --text-dark: #2d3748; /* Primary text color */
+  --text-muted: #718096; /* Subtitle text color */
+  --border-color: #fed7d7; /* Soft red border tint */
 
   /* UI Properties */
   --radius-sm: 8px;
@@ -23,8 +23,16 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   background-color: var(--bg-color);
   color: var(--text-dark);
   line-height: 1.6;
@@ -58,7 +66,8 @@ nav a {
   transition: var(--transition-fast);
 }
 
-nav a:hover, nav a.active {
+nav a:hover,
+nav a.active {
   color: var(--primary-red);
 }
 
@@ -69,7 +78,7 @@ footer {
   font-size: 0.9rem;
   color: var(--text-muted);
   border-top: 1px solid var(--border-color);
-}/*3. LANDING PAGE & HERO SECTION */
+} /*3. LANDING PAGE & HERO SECTION */
 .landing-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -102,10 +111,11 @@ footer {
 }
 
 /* 4. BUTTON STYLING & HOVER EFFECTS*/
-.btn-cta, .btn-primary {
+.btn-cta,
+.btn-primary {
   display: inline-block;
   background-color: var(--primary-red);
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0.9rem 2.2rem;
   font-size: 1.1rem;
   font-weight: 600;
@@ -117,21 +127,33 @@ footer {
   transition: var(--transition-fast);
 }
 
-.btn-cta:hover, .btn-primary:hover {
+.btn-cta:hover,
+.btn-primary:hover {
   background-color: var(--primary-red-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(229, 62, 62, 0.45);
 }
 
-.btn-cta:active, .btn-primary:active {
+.btn-cta:active,
+.btn-primary:active {
   transform: translateY(0);
 }
 
 /* 5. CARD-BASED LAYOUTS (QUIZ TOPICS / FEATURES) */
-.features, .topic-grid {
+.features,
+.topic-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.75rem;
+}
+
+#answer-options.features {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#answer-options .option-text {
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .feature-card, .topic-card {
@@ -144,19 +166,22 @@ footer {
   cursor: pointer;
 }
 
-.feature-card:hover, .topic-card:hover {
+.feature-card:hover,
+.topic-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--primary-red);
 }
 
-.feature-card h3, .topic-card h3 {
+.feature-card h3,
+.topic-card h3 {
   font-size: 1.3rem;
   color: var(--primary-red);
   margin-bottom: 0.5rem;
 }
 
-.feature-card p, .topic-card p {
+.feature-card p,
+.topic-card p {
   color: var(--text-muted);
   font-size: 0.95rem;
 }
@@ -224,7 +249,8 @@ footer {
     font-size: 1rem;
   }
 
-  .features, .topic-grid {
+  .features,
+  .topic-grid {
     grid-template-columns: 1fr; /* Single column on mobile screens */
   }
 }
