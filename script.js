@@ -75,9 +75,16 @@ const QUESTION_BANK = [
   new Question('What does "RPM" measure in an engine?', ['Fuel efficiency', 'Revolutions per minute', 'Road pressure metric', 'Ride performance mode'], 1, 'Medium'),
 
   // Difficult (3)
-  new Question('Which hypercar held the production car speed record set in 2019?', ['Bugatti Chiron', 'Koenigsegg Agera RS', 'Hennessey Venom F5', 'SSC Tuatara'], 0, 'Difficult'),
-  new Question('What type of engine layout does a Porsche 911 traditionally use?', ['Front-engine', 'Mid-engine', 'Rear-engine', 'Inline'], 2, 'Difficult'),
-  new Question('Which motorsport event is known as "The Greatest Spectacle in Racing"?', ['Le Mans 24 Hours', 'Monaco Grand Prix', 'Indianapolis 500', 'Dakar Rally'], 2, 'Difficult'),
+  new Question("What is the firing order of a standard inline-4 engine?", ["1-2-3-4", "1-3-4-2", "1-3-2-4", "1-4-3-2"], 1, "Difficult"),
+new Question("Which company pioneered the first mass-produced double-wishbone suspension?", ["Citroën", "Cadillac", "Lancia", "Packard"], 1, "Difficult"),
+new Question("What does 'VVT-i' stand for in Toyota engines?", ["Variable Valve Timing with intelligence", "Vertical Valve Torque - injected", "Variable Vacuum Timing - internal", "Variable Velocity Turbo - intercooled"], 0, "Difficult"),
+new Question("Which Formula 1 team pioneered the use of the 'active suspension' system in the late 1980s/early 1990s?", ["McLaren", "Ferrari", "Lotus", "Williams"], 2, "Difficult"),
+new Question("What is 'torque steer' most commonly caused by?", ["Unequal length driveshafts in FWD cars", "Worn brake pads", "Underinflated rear tyres", "Excess turbo lag"], 0, "Difficult"),
+new Question("Which material is most commonly used for modern F1 brake discs?", ["Cast iron", "Carbon-carbon composite", "Ceramic-coated steel", "Titanium alloy"], 1, "Difficult"),
+new Question("What is the primary purpose of a 'limited-slip differential'?", ["Improve fuel economy", "Reduce unsprung weight", "Transfer power to the wheel with more grip", "Lower the car's center of gravity"], 2, "Difficult"),
+new Question("What phenomenon describes a turbocharged engine's delayed throttle response?", ["Detonation", "Turbo lag", "Engine braking", "Valve float"], 1, "Difficult"),
+new Question("Which suspension geometry change causes a tyre to lean inward at the top when cornering?", ["Toe-in", "Positive camber", "Negative camber", "Bump steer"], 2, "Difficult"),
+new Question("What is the main function of a wastegate on a turbocharged engine?", ["Cool the intercooler", "Regulate boost pressure by venting exhaust gas", "Lubricate the turbo bearings", "Reduce intake air temperature"], 1, "Difficult"),
 ];
 
 /* ---------------------------------------------------------
