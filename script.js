@@ -63,10 +63,16 @@ class Quiz {
 --------------------------------------------------------- */
 const QUESTION_BANK = [
   // Easy (4)
-  new Question('Which car brand uses a three-pointed star as its logo?', ['BMW', 'Mercedes-Benz', 'Audi', 'Bentley'], 1, 'Easy'),
-  new Question('What does "SUV" stand for?', ['Sport Utility Vehicle', 'Super Urban Van', 'Standard Utility Vehicle', 'Sport Universal Van'], 0, 'Easy'),
-  new Question('Which fuel is used in a diesel engine?', ['Petrol', 'Diesel', 'Ethanol', 'Propane'], 1, 'Easy'),
-  new Question('Which car brand is known for the Mustang?', ['Chevrolet', 'Dodge', 'Ford', 'Toyota'], 2, 'Easy'),
+new Question("Which car brand's logo is a silver ring pattern of four interlocked circles?", ["BMW", "Audi", "Mercedes-Benz", "Volkswagen"], 1, "Easy"),
+new Question("What is the world's best-selling car of all time?", ["Ford F-150", "Toyota Corolla", "Volkswagen Beetle", "Honda Civic"], 1, "Easy"),
+new Question("Which car brand makes the Wrangler?", ["Jeep", "Ford", "Chevrolet", "GMC"], 0, "Easy"),
+new Question("What do you call the front cover over a car's engine?", ["Boot", "Bonnet/Hood", "Fender", "Spoiler"], 1, "Easy"),
+new Question("Which country is Ferrari from?", ["France", "Germany", "Italy", "Spain"], 2, "Easy"),
+new Question("Which of these is a Toyota model?", ["Civic", "Corolla", "Focus", "Sentra"], 1, "Easy"),
+new Question("What shape is the Volkswagen logo?", ["Circle", "Square", "Triangle", "Hexagon"], 0, "Easy"),
+new Question("Which car brand makes the Mustang?", ["Chevrolet", "Dodge", "Ford", "Pontiac"], 2, "Easy"),
+new Question("Which car brand makes the Camaro?", ["Ford", "Dodge", "Chevrolet", "Pontiac"], 2, "Easy"),
+new Question("Which car brand is known for the Civic and Accord?", ["Toyota", "Honda", "Nissan", "Mazda"], 1, "Easy"),
 
   // Medium (10)
 new Question('What year was the first Volkswagen Beetle produced?', ['1938', '1948', '1958', '1968'], 0, 'Medium'),
