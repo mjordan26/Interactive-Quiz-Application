@@ -387,21 +387,38 @@ QuizFlow.prototype.playTick = function (remaining, duration) {
     if (!this._audioCtx) {
       this._audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     }
+
     const ctx = this._audioCtx;
+    const urgency = 1 - (duration ? remaining / duration : 0);
+    const frequency = 650 + urgency * 1400;
+    const toneLength = Math.max(0.03, 0.11 - urgency * 0.07);
+    const gainValue = 0.08 + urgency * 0.06;
+
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    const urgency = 1 - (duration ? remaining / duration : 0);
-    const frequency = 420 + urgency * 1100;
-    const toneLength = Math.max(0.04, 0.12 - urgency * 0.08);
+    const shimmer = ctx.createOscillator();
+    const shimmerGain = ctx.createGain();
 
     osc.type = 'square';
     osc.frequency.value = frequency;
-    gain.gain.setValueAtTime(0.06, ctx.currentTime);
+
+    shimmer.type = 'triangle';
+    shimmer.frequency.value = frequency * 2.5;
+
+    gain.gain.setValueAtTime(gainValue, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + toneLength);
+    shimmerGain.gain.setValueAtTime(gainValue * 0.25, ctx.currentTime);
+    shimmerGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + toneLength);
+
     osc.connect(gain);
+    shimmer.connect(shimmerGain);
     gain.connect(ctx.destination);
+    shimmerGain.connect(ctx.destination);
+
     osc.start();
+    shimmer.start();
     osc.stop(ctx.currentTime + toneLength);
+    shimmer.stop(ctx.currentTime + toneLength);
   } catch (e) {
     console.warn('AudioContext not supported or user interaction required for sound playback.');
   }
