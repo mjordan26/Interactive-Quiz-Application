@@ -147,8 +147,16 @@ footer {
   gap: 1.75rem;
 }
 
-.feature-card,
-.topic-card {
+#answer-options.features {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#answer-options .option-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.feature-card, .topic-card {
   background-color: var(--card-bg);
   padding: 2rem;
   border-radius: var(--radius-lg);
