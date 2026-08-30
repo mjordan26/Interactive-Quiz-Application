@@ -293,23 +293,36 @@ class Timer {
     this.intervalId = null;
   }
 
+  scheduleNextTick() {
+    const progressRatio = this.remaining / this.duration;
+    const delayMs = Math.max(150, Math.round(progressRatio * 1000));
+
+    this.intervalId = setTimeout(() => {
+      if (this.remaining <= 0) return;
+
+      this.remaining = Math.max(0, this.remaining - 1);
+      this.onTick(this.remaining, this.duration);
+
+      if (this.remaining <= 0) {
+        this.stop();
+        this.onExpire();
+        return;
+      }
+
+      this.scheduleNextTick();
+    }, delayMs);
+  }
+
   start() {
     this.stop();
     this.remaining = this.duration;
     this.onTick(this.remaining, this.duration);
-    this.intervalId = setInterval(() => {
-      this.remaining -= 1;
-      this.onTick(this.remaining, this.duration);
-      if (this.remaining <= 0) {
-        this.stop();
-        this.onExpire();
-      }
-    }, 1000);
+    this.scheduleNextTick();
   }
 
   stop() {
     if (this.intervalId) {
-      clearInterval(this.intervalId);
+      clearTimeout(this.intervalId);
       this.intervalId = null;
     }
   }
@@ -369,7 +382,7 @@ QuizFlow.prototype.showResults = function () {
 // ticking sound for the timer
 // ============================
 
-QuizFlow.prototype.playTick = function () {
+QuizFlow.prototype.playTick = function (remaining, duration) {
   try {
     if (!this._audioCtx) {
       this._audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -377,14 +390,18 @@ QuizFlow.prototype.playTick = function () {
     const ctx = this._audioCtx;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
+    const urgency = 1 - (duration ? remaining / duration : 0);
+    const frequency = 420 + urgency * 1100;
+    const toneLength = Math.max(0.04, 0.12 - urgency * 0.08);
+
     osc.type = 'square';
-    osc.frequency.value = 880;
+    osc.frequency.value = frequency;
     gain.gain.setValueAtTime(0.06, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + toneLength);
     osc.connect(gain);
     gain.connect(ctx.destination);
     osc.start();
-    osc.stop(ctx.currentTime + 0.08);
+    osc.stop(ctx.currentTime + toneLength);
   } catch (e) {
     console.warn('AudioContext not supported or user interaction required for sound playback.');
   }
@@ -398,7 +415,7 @@ QuizFlow.prototype.startTimer = function () {
       const pct = Math.max(0, (remaining / duration) * 100);
       this.dom.timerFill.style.width = `${pct}%`;
       this.dom.timerFill.style.background = remaining <= 5 ? '#B91C1C' : this.colors.primaryRed;
-      this.playTick();
+      this.playTick(remaining, duration);
     },
     () => this.handleAnswer(-1)
   );
