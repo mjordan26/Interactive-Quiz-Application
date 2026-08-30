@@ -135,6 +135,7 @@ class QuizFlow {
     this.injectReviewContainer();
     this.bindEvents();
   }
+  
 
   /* ---- one-time DOM setup that doesn't require editing quiz.html ---- */
 
@@ -202,7 +203,7 @@ class QuizFlow {
 
     // retrigger the fade-in animation on the swapped-in question
     this.dom.quizScreen.classList.remove('fade-in');
-    void this.dom.quizScreen.offsetWidth; // force reflow so the animation restarts
+    void this.dom.quizScreen.offsetWidth; 
     this.dom.quizScreen.classList.add('fade-in');
   }
 
@@ -237,6 +238,7 @@ class QuizFlow {
       this.renderQuestion();
     }
   }
+  
 
   /* ---- results ---- */
 
@@ -276,6 +278,106 @@ class QuizFlow {
     return 'Rough round — hit Try Again and give it another shot.';
   }
 }
+// ============================
+// Timer class
+// ============================
+
+class Timer {
+  constructor(durationSeconds, onTick, onExpire) {
+    this.duration = durationSeconds;
+    this.onTick = onTick;
+    this.onExpire = onExpire;
+    this.remaining = durationSeconds;
+    this.intervalId = null;
+  }
+
+  start() {
+    this.stop();
+    this.remaining = this.duration;
+    this.onTick(this.remaining, this.duration);
+    this.intervalId = setInterval(() => {
+      this.remaining -= 1;
+      this.onTick(this.remaining, this.duration);
+      if (this.remaining <= 0) {
+        this.stop();
+        this.onExpire();
+      }
+    }, 1000);
+  }
+
+  stop() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }
+  }
+}
+
+// ============================
+// Add a countdown timer to QuizFlow without editing the class above
+// ============================
+
+QuizFlow.prototype.injectTimerBar = function () {
+  const track = document.createElement('div');
+  track.style.width = '100%';
+  track.style.height = '6px';
+  track.style.background = this.colors.border;
+  track.style.borderRadius = '3px';
+  track.style.overflow = 'hidden';
+  track.style.margin = '0 0 1.5rem 0';
+
+  const fill = document.createElement('div');
+  fill.id = 'timer-fill';
+  fill.style.height = '100%';
+  fill.style.width = '100%';
+  fill.style.background = this.colors.primaryRed;
+  fill.style.transition = 'width 1s linear, background-color 0.3s ease';
+
+  track.appendChild(fill);
+
+  const progressContainer = document.querySelector('.progress-container');
+  if (progressContainer) {
+    progressContainer.insertAdjacentElement('afterend', track);
+  } else {
+    this.dom.questionText.parentElement.insertAdjacentElement('beforebegin', track);
+  }
+  this.dom.timerFill = fill;
+};
+
+QuizFlow.prototype.startTimer = function () {
+  const QUESTION_SECONDS = 10; 
+  if (this.timer) this.timer.stop();
+  this.timer = new Timer(
+    QUESTION_SECONDS,
+    (remaining, duration) => {
+      const pct = Math.max(0, (remaining / duration) * 100);
+      this.dom.timerFill.style.width = `${pct}%`;
+      this.dom.timerFill.style.background = remaining <= 5 ? '#B91C1C' : this.colors.primaryRed;
+    },
+    () => this.handleAnswer(-1) 
+  );
+  this.timer.start();
+};
+
+const _originalRenderQuestion = QuizFlow.prototype.renderQuestion;
+QuizFlow.prototype.renderQuestion = function () {
+  _originalRenderQuestion.call(this);
+  if (!this.dom.timerFill) this.injectTimerBar();
+  this.startTimer();
+};
+
+const _originalHandleAnswer = QuizFlow.prototype.handleAnswer;
+QuizFlow.prototype.handleAnswer = function (selectedIndex) {
+  if (this.answerLocked) return;
+  if (this.timer) this.timer.stop();
+  _originalHandleAnswer.call(this, selectedIndex);
+};
+
+const _originalShowResults = QuizFlow.prototype.showResults;
+QuizFlow.prototype.showResults = function () {
+  if (this.timer) this.timer.stop();
+  _originalShowResults.call(this);
+};
 document.addEventListener('DOMContentLoaded', () => {
   const isQuizPage = document.getElementById('quiz-screen');
   if (!isQuizPage) return;
