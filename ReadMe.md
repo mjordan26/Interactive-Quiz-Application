@@ -1,6 +1,6 @@
 # AutoQuiz — Car Trivia Quiz App
 
-A multi-category car trivia quiz app built as a group project for Melsoft Academy, testing knowledge across car brands, mechanics, performance, and motorsport using core JavaScript OOP principles.
+A multi-category car trivia quiz app built as a group project, testing knowledge across car brands, mechanics, performance, and motorsport using core JavaScript OOP principles.
 
 ## Description
 
